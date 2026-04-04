@@ -1,0 +1,18 @@
+ 
+ //this error class is a generic error class
+ 
+ class AppError extends Error{
+     constructor(
+        name,
+        message,
+        explanation,
+        statusCode
+     ){
+        this.name = name;
+        this.message = message;
+        this.explanation = explanation;
+        this.statusCode = statusCode 
+     }
+ }
+
+ module.exports = AppError;
