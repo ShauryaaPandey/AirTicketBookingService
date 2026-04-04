@@ -18,6 +18,31 @@ class BookingRepository {
                 StatusCodes.INTERNAL_SERVER_ERROR);
         }
     }
+
+    async update(bookingId,data){
+         try {
+            // await Booking.update(data,{
+            //     where : {
+            //         id : bookingId
+            //     }
+            // });
+            // return true;
+
+            //another way
+            const booking = await Booking.findByPk(bookingId);
+            if(data.status){
+                booking.status = data.status;
+            }
+            await booking.save();
+            return booking;
+         } catch (error) {
+            throw new AppError(
+                'RepoError',
+                'Cannot update Booking',
+                'There was some issue while updating the booking , please try again later',
+                StatusCodes.INTERNAL_SERVER_ERROR);
+         }
+    }
 }
 
 module.exports = BookingRepository;

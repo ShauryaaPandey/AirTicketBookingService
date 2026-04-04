@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyparser = require('body-parser');
 
-const {PORT} = require('./config/server-config');
+const {PORT } = require('./config/server-config');
 
 const ApiRoutes = require('./routes/index');
 
@@ -22,8 +22,7 @@ const setupAndStartServer = () => {
         if(process.env.DB_SYNC){
             db.sequelize.sync({alter:true});
             }
-    })
-
+    });
 }
 
 setupAndStartServer();
