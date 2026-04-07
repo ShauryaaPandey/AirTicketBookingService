@@ -50,8 +50,7 @@ class BookingService{
             error.message);
         } 
     }
-
-
+    
 }
 
 module.exports = BookingService;
